@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=maze\ row\ column
+comment0.target=void\ solve(Maze,\ int,\ int)
+comment0.text=\r\n\ \ \ \ \ \ Traverses\ a\ maze,\ printing\ out\ a\ path\ to\ the\ exit.\r\n\ \ \ \ \ \ @param\ maze\ the\ maze\r\n\ \ \ \ \ \ @param\ param\ the\ row\ of\ the\ starting\ position\r\n\ \ \ \ \ \ @param\ param\ the\ column\ of\ the\ starting\ position\r\n
+numComments=1

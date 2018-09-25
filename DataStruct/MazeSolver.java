@@ -30,6 +30,7 @@ public class MazeSolver
         Path path = s.pop();
         usedPaths.push(path);
         if(maze.isExit(path.getEndingRow(), path.getEndingColumn())){
+            System.out.println("Yay");
             finalPath.push(path);
             bool = false;
         }
