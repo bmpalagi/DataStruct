@@ -1,6 +1,6 @@
 //Brad Palagi
 
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public class LinkedList
 {
@@ -118,6 +118,50 @@ public class LinkedList
             }
         }
         
-    }
+        /**
+         * Adds an element before the iterator position then moves past the inserted element
+         * @param element to add
+         */
+        public void add(Object element)
+        {
+            if (position == null)
+            {
+                addFirst(element);
+                position = first;
+            }
+            else
+            {
+                Node newNode = new Node();
+                newNode.data = element;
+                newNode.next = position.next;
+                position.next = newNode;
+                position = newNode;
+            }
+            
+            isAfterNext = false;
+        }
+       
+        /**
+         * Removes the last traversed element. This method may only be called after a call to the next method
+         */
+        public void remove()
+        {
+            if (!isAfterNext){throw new IllegalStateException();}
+            
+            if (position == first)
+            {
+                removeFirst();
+            }
+            else
+            {
+                previous.next = position.next;
+                
+            }
+            position = previous;
+            isAfterNext = false;
+            
+        }
+        
+        }
     
 }
