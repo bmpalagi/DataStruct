@@ -4,19 +4,24 @@ public class TestDataStruc
     public static void main(String[] args)
     { 
         LinkedList x = new LinkedList();
-        String word = "Hi";
-        String word2;
-        x.addFirst(word);
-        x.addFirst(new String("Two"));
-        x.addFirst("sup");
         
-        //Old School
+        x.addFirst("One");
+        x.addFirst("Two");
+        x.addFirst("Three");
         
-        //word2 = x.getFirst(); // getFirst() returns an Object
+        ListIterator iter = x.listIterator();
+        while(iter.hasNext())
+        {System.out.println(iter.next());}
         
-        word2 = (String)x.getFirst(); //must cast the object
+        x.reverse();
         
-        System.out.println(word2);
+        
+        ListIterator iter2 = x.listIterator();
+        while(iter2.hasNext())
+        {System.out.println(iter2.next());}
+        
+        System.out.println(x.size());
+        
         
     }
 

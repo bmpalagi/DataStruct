@@ -69,6 +69,47 @@ public class LinkedList
         
     }
     
+    public void reverse()
+    {
+        /*LinkedList rev = new LinkedList();
+        Node current = first;
+        
+        while(current != null)
+        {
+            current = current.next;
+            rev.addFirst(this.removeFirst());
+        }
+        first = rev.first;*/
+        
+        if (first == null){return;}
+        
+        Node next;
+        Node previous = first;
+        Node current = first.next;
+        first.next = null;
+        while(current!= null)
+        {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        first = previous;
+    }
+    
+    public int size()
+    {
+        int size = 0;
+        if (first == null){return size;}
+        Node current = first;
+        while (current != null)
+        {
+            current = current.next;
+            size++;
+        }
+
+        return size;
+    }
     class LinkedListIterator implements ListIterator
     {
         private Node position;
