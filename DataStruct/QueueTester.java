@@ -3,12 +3,14 @@ public class QueueTester
 {
     public static void main(String[] args)
     {
-        CircularArrayQueue q = new CircularArrayQueue();
+        LinkedListQueue q = new LinkedListQueue();
         q.add("Tom");
         q.add("Diana");
         q.add("Harry");
+        
         q.lastToFirst();
         q.add("Bob the builder");
+        
         while (!q.empty())
         {
             System.out.print(q.remove() + " ");

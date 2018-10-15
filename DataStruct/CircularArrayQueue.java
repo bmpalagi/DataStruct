@@ -64,23 +64,24 @@ public class CircularArrayQueue
     //This doesnt work
    public void lastToFirst()
    {
-       int newHead =head,newTail=tail;
+       growIfNecessary();
+       
        if (head == 0)
        {
-           newHead = elements.length -1;
+           head = elements.length -1;
         }
        else
-            newHead--;
-            
-       elements[newHead] = elements[tail]; 
+            head--;
        
        if (tail == 0)
        {
-           newTail = elements.length -1;
+           tail = elements.length -1;
         }
        else
-            newTail--;
-       tail = newTail;
+            tail--;
+            
+       elements[head] = elements[tail];
+       
     }
     
    /**
