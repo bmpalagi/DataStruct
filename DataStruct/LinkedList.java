@@ -6,6 +6,7 @@ public class LinkedList
 {
 
     private Node first;
+    public int currentSize;
     
     class Node
     {
@@ -23,7 +24,7 @@ public class LinkedList
     public LinkedList()
     {
         first = null;
-        
+        currentSize = 0;
     }
     
     /**
@@ -36,8 +37,8 @@ public class LinkedList
         newNode.data = element;//points to object
         newNode.next = first;
         first = newNode;
-        
-    }
+        currentSize++;
+            }
     
     /**
      * Returns the first element in the LL
@@ -59,8 +60,8 @@ public class LinkedList
         if(first == null){throw new NoSuchElementException();}
         Object returnObj = first.data;
         first = first.next;
-        return returnObj;
-        
+        currentSize--;
+        return returnObj;        
     }
     
     public ListIterator listIterator()
@@ -87,7 +88,7 @@ public class LinkedList
         Node previous = first;
         Node current = first.next;
         first.next = null;
-        while(current!= null)
+        while(current != null)
         {
             next = current.next;
             current.next = previous;
@@ -99,7 +100,7 @@ public class LinkedList
     
     public int size()
     {
-        int size = 0;
+        /*int size = 0;
         if (first == null){return size;}
         Node current = first;
         while (current != null)
@@ -108,7 +109,8 @@ public class LinkedList
             size++;
         }
 
-        return size;
+        return size;*/
+        return currentSize;
     }
     class LinkedListIterator implements ListIterator
     {
@@ -138,9 +140,8 @@ public class LinkedList
             {
                 position = position.next;
             }
-            
+                       
             return position.data;
-            
         }
         
         /**
@@ -180,6 +181,7 @@ public class LinkedList
             }
             
             isAfterNext = false;
+            currentSize++;
         }
        
         /**
@@ -200,7 +202,7 @@ public class LinkedList
             }
             position = previous;
             isAfterNext = false;
-            
+            currentSize--;
         }
         
         }
