@@ -2,6 +2,18 @@
 
 import java.util.*;
 
+/* 
+ * 16.1
+ * Add methods Object get(int n) and void set(int n, Object newElement) to the LinkedList class
+ * Use a helper method that starts at first and follows n links
+ * private static Node getNode(int n)
+ * 
+ * 16.4
+ * Add a method boolean contains(Object obj) that checks whether our LinkedList implementation contains
+ * a given object. Implement this method by directly traversing the links, not by using an iterator.
+ * 
+ */
+
 public class LinkedList
 {
 
@@ -26,6 +38,30 @@ public class LinkedList
         first = null;
         currentSize = 0;
     }
+    
+    public Object get(int n)
+    {
+        return new Object();
+    }
+    
+    public void set(int n, Object newElement)
+    {
+        return;
+    }
+    
+    public boolean contains(Object obj)
+    {
+        Node node = first;
+        
+        while (node != null)
+        {
+            if (node == obj)
+                return true;
+        }
+        
+        return false;
+    }
+    
     
     /**
      * Adds an element to the front of the LL
