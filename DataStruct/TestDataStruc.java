@@ -5,23 +5,22 @@ public class TestDataStruc
     { 
         LinkedList x = new LinkedList();
         
-        x.addFirst("One");
-        x.addFirst("Two");
         x.addFirst("Three");
-        /*
+        x.addFirst("Two");
+        x.addFirst("One");
+        
+        System.out.println("Setting the second element as Sup");
+        x.set(2, "Sup");
+        System.out.println("This second element is: " + x.get(2));
+        System.out.println("Linked List contains Sup: " + x.contains("Sup"));
+        System.out.println("Linked List contains Hello: " + x.contains("Hello"));
+        
+        System.out.println("Whole linked list: ");
         ListIterator iter = x.listIterator();
-        while(iter.hasNext())
-        {System.out.println(iter.next());}
-        
-        x.reverse();
-        
-        
-        ListIterator iter2 = x.listIterator();
-        while(iter2.hasNext())
-        {System.out.println(iter2.next());}
-        */
-        System.out.println(x.size());
-        
+        while (iter.hasNext())
+        {
+            System.out.println(iter.next());
+        }
         
     }
     

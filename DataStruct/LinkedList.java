@@ -1,18 +1,7 @@
 //Brad Palagi
+//Linked List
 
 import java.util.*;
-
-/* 
- * 16.1
- * Add methods Object get(int n) and void set(int n, Object newElement) to the LinkedList class
- * Use a helper method that starts at first and follows n links
- * private static Node getNode(int n)
- * 
- * 16.4
- * Add a method boolean contains(Object obj) that checks whether our LinkedList implementation contains
- * a given object. Implement this method by directly traversing the links, not by using an iterator.
- * 
- */
 
 public class LinkedList
 {
@@ -39,24 +28,51 @@ public class LinkedList
         currentSize = 0;
     }
     
+    /* 16.1
+    * Add methods Object get(int n) and void set(int n, Object newElement) to the LinkedList class
+    * Use a helper method that starts at first and follows n links
+    * private static Node getNode(int n)
+    */
     public Object get(int n)
     {
-        return new Object();
+        return getNode(n).data; //use helper method to get the Node at spot n, return its data
     }
-    
     public void set(int n, Object newElement)
     {
-        return;
+        Node newNode = new Node(); //make a new node for the new element
+        newNode.next = getNode(n); //set the next of the new node to the element currently at position n
+        newNode.data = newElement; //put in the data to the node
+        getNode(n-1).next = newNode; //make the previous node point to the new node
     }
+    
+    private Node getNode(int n) //helper method to get the n node in the linked list
+    {
+        Node nodeN = first;
+        
+        for (int i = 1; i<n; i++)
+        {
+            nodeN = nodeN.next;
+        }
+        
+        return nodeN;        
+    }
+        
+    /*
+     * 16.4
+     * Add a method boolean contains(Object obj) that checks whether our LinkedList implementation contains
+     * a given object. Implement this method by directly traversing the links, not by using an iterator.
+     */
     
     public boolean contains(Object obj)
     {
-        Node node = first;
+        Node node = first; //start at first
         
-        while (node != null)
+        while (node != null) // go through the list
         {
-            if (node == obj)
+            if (node.data.equals(obj)) //if equal return true
                 return true;
+            
+            node = node.next;
         }
         
         return false;
